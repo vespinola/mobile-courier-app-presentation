@@ -30,7 +30,7 @@ public final class LoginViewModel: ObservableObject {
   }
 
   @MainActor
-  func doLogin() async -> Bool {
+  public func doLogin() async -> Bool {
     do {
       isLoading = true
       try await authRepository.performLogin(email: email, password: password)
