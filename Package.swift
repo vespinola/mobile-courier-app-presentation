@@ -26,7 +26,8 @@ let package = Package(
             dependencies: [
               .product(name: "JustACourierAppDomain", package: "mobile-courier-app-domain"),
             ],
-            path: "Sources"
+            path: "Sources",
+            resources: [ .process("Resources") ]
         ),
     ]
 )
