@@ -7,7 +7,6 @@
 
 import SwiftUI
 import JustACourierAppDomain
-import JustACourierAppPresentation
 
 struct PackagesForWithdrawalView: View {
   @ObservedObject var viewModel: PackagesForWithdrawalViewModel

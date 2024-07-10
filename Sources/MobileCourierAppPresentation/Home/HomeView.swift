@@ -7,7 +7,6 @@
 
 import SwiftUI
 import JustACourierAppDomain
-import JustACourierAppPresentation
 
 struct HomeView: View {
   @EnvironmentObject var coordinator: Coordinator

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import JustACourierAppPresentation
 
 final class AppDIContainerMock: DIContainerProtocol {
   private var services: [String: Any] = [:]

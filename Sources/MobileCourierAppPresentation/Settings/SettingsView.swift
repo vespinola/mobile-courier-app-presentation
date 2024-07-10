@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import JustACourierAppPresentation
 
 struct SettingsView: View {
   @AppStorage("isDarkMode") var darkModeOn: Bool = false
