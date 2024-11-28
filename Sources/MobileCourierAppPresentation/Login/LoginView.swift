@@ -13,7 +13,7 @@ struct LoginView: View {
     case password
   }
 
-  @ObservedObject var viewModel: LoginViewModel
+  @StateObject var viewModel: LoginViewModel
   @FocusState private var focusField: Field?
   @EnvironmentObject var coordinator: Coordinator
 
