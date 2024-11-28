@@ -9,7 +9,7 @@ import SwiftUI
 import JustACourierAppDomain
 
 struct PackagesForWithdrawalView: View {
-  @ObservedObject var viewModel: PackagesForWithdrawalViewModel
+  @StateObject var viewModel: PackagesForWithdrawalViewModel
   @EnvironmentObject var coordinator: Coordinator
 
   var body: some View {

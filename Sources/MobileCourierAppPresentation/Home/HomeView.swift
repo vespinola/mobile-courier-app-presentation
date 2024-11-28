@@ -10,7 +10,7 @@ import JustACourierAppDomain
 
 struct HomeView: View {
   @EnvironmentObject var coordinator: Coordinator
-  @ObservedObject var viewModel: HomeViewModel
+  @StateObject var viewModel: HomeViewModel
 
   @State var selectedTab = 0
 
@@ -54,7 +54,7 @@ struct HomeView: View {
         }
         .tag(1)
 
-      getProfileChildView(addresses: viewModel.addresses)
+      getProfileChildView()
         .tabItem {
           Label("Profile", systemImage: "person")
             .accessibilityIdentifier(
@@ -75,8 +75,8 @@ struct HomeView: View {
   }
 
   @ViewBuilder
-  private func getProfileChildView(addresses: AddressesEntity?) -> some View {
-    if let addresses = addresses {
+  private func getProfileChildView() -> some View {
+    if let addresses = viewModel.addresses {
       coordinator.build(page: .profile)
         .environmentObject(addresses)
     } else {

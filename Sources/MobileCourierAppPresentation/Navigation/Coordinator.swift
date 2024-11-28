@@ -63,30 +63,31 @@ public final class Coordinator: ObservableObject {
   }
 
   // MARK: Views
-
   @ViewBuilder
   func build(page: Page) -> some View {
     switch page {
     case .login:
       LoginView(
-        viewModel: diContainer.resolve(LoginViewModel.self)
+        viewModel: .init(authRepository: self.diContainer.resolve(AuthRepositoryProtocol.self), storage: self.diContainer.resolve(Storage.self))
       )
     case .profile:
       ProfileView()
     case .home:
       HomeView(
-        viewModel: diContainer.resolve(HomeViewModel.self)
+        viewModel: .init(addressesRepository: self.diContainer.resolve(AddressRepositoryProtocol.self))
       )
     case .withdrawnPackages:
         WithdrawnPackagesView(
-          viewModel: diContainer.resolve(WithdrawnPackagesViewModel.self)
+          viewModel: .init(packagesRepository: self.diContainer.resolve(PackagesRepositoryProtocol.self))
         )
     case .packagesForWithdrawl:
       PackagesForWithdrawalView(
-        viewModel: diContainer.resolve(PackagesForWithdrawalViewModel.self)
+        viewModel: .init(packagesRepository: self.diContainer.resolve(PackagesRepositoryProtocol.self))
       )
     case .configurations:
-        SettingsView(viewModel: diContainer.resolve(SettingsViewModel.self))
+        SettingsView(
+          viewModel: .init(authRepository: diContainer.resolve(AuthRepositoryProtocol.self))
+        )
     }
   }
 
